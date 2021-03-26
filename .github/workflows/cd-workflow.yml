@@ -2,11 +2,8 @@
 
 name: Docker CD
 
-on:
-  push:
-    paths:
-      - "**Dockerfile**"
-      - ".github./*"
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
