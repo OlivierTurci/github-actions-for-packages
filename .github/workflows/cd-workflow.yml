@@ -48,6 +48,12 @@ jobs:
     needs: test
     name: Docker Build, Tag, Push
     steps:
+      - name: Download built artifact
+        uses: actions/download-artifact@main
+        with:
+          name: webpack artifacts
+          path: public
+          
       - name: PrepareReg Names
         run: |
           echo IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
